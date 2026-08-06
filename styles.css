@@ -360,6 +360,41 @@ code {
 
 .case-figure img {
   width: 100%;
+  display: block;
+}
+
+.img-zoom {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  position: relative;
+}
+.img-zoom::after {
+  content: "Agrandir";
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  background: rgba(16, 25, 43, 0.72);
+  padding: 0.3em 0.6em;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.img-zoom:hover::after,
+.img-zoom:focus-visible::after {
+  opacity: 1;
+}
+.img-zoom:hover img,
+.img-zoom:focus-visible img {
+  filter: brightness(0.94);
 }
 
 .case-figure figcaption {
@@ -368,6 +403,76 @@ code {
   color: var(--ink-soft);
   padding: 10px 14px;
   border-top: 1px solid var(--line);
+}
+
+.zoom-hint {
+  color: var(--accent);
+}
+
+/* ---------------------------------------------------------
+   Lightbox
+--------------------------------------------------------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 25, 43, 0.86);
+}
+
+.lightbox-content {
+  position: relative;
+  margin: 0;
+  max-width: min(92vw, 1200px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.lightbox-content figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--bg);
+  text-align: center;
+  padding-top: 14px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--bg);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius);
+  padding: 0.5em 0.9em;
+  cursor: pointer;
+}
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .case-tag {

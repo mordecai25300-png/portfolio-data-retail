@@ -101,12 +101,19 @@
         <article class="case reveal">
           <div class="wrap case-grid">
             <figure class="case-figure">
-              <img
-                src="assets/img/call-center-vision-globale.png"
-                alt="Dashboard Power BI — vue globale du centre d'appels : 132K appels, 12,54 min de temps d'appel moyen, 88,22% de respect du SLA, 10,79M de revenu total, répartition par type d'appel et par site."
-              />
+              <button
+                type="button"
+                class="img-zoom"
+                aria-label="Agrandir : vue globale du centre d'appels"
+              >
+                <img
+                  src="assets/img/call-center-vision-globale.png"
+                  alt="Dashboard Power BI — vue globale du centre d'appels : 132K appels, 12,54 min de temps d'appel moyen, 88,22% de respect du SLA, 10,79M de revenu total, répartition par type d'appel et par site."
+                />
+              </button>
               <figcaption>
                 Fig. — Vue globale, tableau de bord Power BI
+                <span class="zoom-hint">— cliquer pour agrandir</span>
               </figcaption>
             </figure>
 
@@ -225,12 +232,19 @@
         <article class="case reveal">
           <div class="wrap case-grid">
             <figure class="case-figure">
-              <img
-                src="assets/img/french-industry-vue-globale.png"
-                alt="Dashboard Power BI — vue globale des inégalités économiques en France : salaire moyen 13,71€/h, 5M d'établissements, 64M d'habitants, classement des salaires par région et scatter population vs salaire."
-              />
+              <button
+                type="button"
+                class="img-zoom"
+                aria-label="Agrandir : vue globale des inégalités économiques en France"
+              >
+                <img
+                  src="assets/img/french-industry-vue-globale.png"
+                  alt="Dashboard Power BI — vue globale des inégalités économiques en France : salaire moyen 13,71€/h, 5M d'établissements, 64M d'habitants, classement des salaires par région et scatter population vs salaire."
+                />
+              </button>
               <figcaption>
                 Fig. — Vue globale, tableau de bord Power BI
+                <span class="zoom-hint">— cliquer pour agrandir</span>
               </figcaption>
             </figure>
 
@@ -353,13 +367,20 @@
         <article class="case reveal">
           <div class="wrap case-grid">
             <figure class="case-figure">
-              <img
-                src="assets/img/store-sales-reassort.png"
-                alt="Dashboard Power BI — page recommandation réassort : moyenne mobile 7 jours des ventes, tendance -11,41%, variabilité 1,31%, table des combinaisons magasin × famille à risque de rupture."
-              />
+              <button
+                type="button"
+                class="img-zoom"
+                aria-label="Agrandir : page recommandation réassort"
+              >
+                <img
+                  src="assets/img/store-sales-reassort.png"
+                  alt="Dashboard Power BI — page recommandation réassort : moyenne mobile 7 jours des ventes, tendance -11,41%, variabilité 1,31%, table des combinaisons magasin × famille à risque de rupture."
+                />
+              </button>
               <figcaption>
                 Fig. — Page « Recommandation réassort », tableau de bord Power
                 BI
+                <span class="zoom-hint">— cliquer pour agrandir</span>
               </figcaption>
             </figure>
 
@@ -637,6 +658,22 @@
         <a href="#haut">Haut de page ↑</a>
       </div>
     </footer>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <div class="lightbox-backdrop" data-close></div>
+      <figure class="lightbox-content">
+        <button
+          type="button"
+          class="lightbox-close"
+          data-close
+          aria-label="Fermer l'image"
+        >
+          Fermer ✕
+        </button>
+        <img src="" alt="" id="lightbox-img" />
+        <figcaption id="lightbox-caption"></figcaption>
+      </figure>
+    </div>
 
     <script src="script.js"></script>
   </body>
