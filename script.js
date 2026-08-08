@@ -76,3 +76,47 @@
     if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
   });
 })();
+
+(function () {
+  var button = document.querySelector(".copy-email");
+  if (!button) return;
+
+  var email = button.getAttribute("data-email");
+  var defaultLabel = button.textContent;
+
+  function fallbackCopy(text) {
+    var textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand("copy");
+    } catch (err) {
+      /* copy unsupported, ignore */
+    }
+    document.body.removeChild(textarea);
+  }
+
+  function showCopied() {
+    button.textContent = "Adresse copiée";
+    button.setAttribute("data-copied", "true");
+    setTimeout(function () {
+      button.textContent = defaultLabel;
+      button.removeAttribute("data-copied");
+    }, 2000);
+  }
+
+  button.addEventListener("click", function () {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(showCopied, function () {
+        fallbackCopy(email);
+        showCopied();
+      });
+    } else {
+      fallbackCopy(email);
+      showCopied();
+    }
+  });
+})();

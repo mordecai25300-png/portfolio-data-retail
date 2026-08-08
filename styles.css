@@ -665,6 +665,19 @@ code {
 
 .contact-card {
   margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.copy-email {
+  font-family: var(--font-mono);
+}
+.copy-email[data-copied="true"] {
+  color: var(--accent-dark);
+  border-color: var(--accent-dark);
+  background: var(--accent-soft);
 }
 
 /* ---------------------------------------------------------
