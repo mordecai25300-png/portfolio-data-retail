@@ -574,6 +574,110 @@ code {
 }
 
 /* ---------------------------------------------------------
+   Détail technique (disclosure)
+--------------------------------------------------------- */
+.tech-detail {
+  margin-top: 1.4em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.tech-detail summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 0.85em 1.1em;
+  user-select: none;
+}
+.tech-detail summary::-webkit-details-marker {
+  display: none;
+}
+.tech-detail summary::marker {
+  content: "";
+}
+.tech-detail summary::before {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1em;
+  height: 1.1em;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  font-size: 0.9em;
+  line-height: 1;
+}
+.tech-detail[open] summary::before {
+  content: "–";
+}
+.tech-detail[open] summary {
+  border-bottom: 1px solid var(--line);
+}
+.tech-detail summary:hover {
+  background: var(--accent-soft);
+}
+
+.tech-detail-body {
+  padding: 1.1em 1.1em 1.3em;
+}
+.tech-detail-body .case-tag {
+  margin-bottom: 0.8em;
+}
+
+/* ---------------------------------------------------------
+   Mon offre
+--------------------------------------------------------- */
+.offer-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+@media (min-width: 860px) {
+  .offer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.offer-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  padding: 28px;
+}
+
+.offer-card h3 {
+  margin-bottom: 0.3em;
+}
+
+.offer-price {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--accent);
+  margin: 0 0 1em;
+}
+
+.offer-desc {
+  color: var(--ink-soft);
+  margin: 0 0 1.6em;
+  flex-grow: 1;
+}
+
+.offer-cta {
+  align-self: flex-start;
+}
+
+/* ---------------------------------------------------------
    About
 --------------------------------------------------------- */
 .about-grid {

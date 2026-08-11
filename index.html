@@ -28,6 +28,7 @@
         <a class="brand" href="#haut">Talha</a>
         <nav class="main-nav" aria-label="Navigation principale">
           <a href="#etudes-de-cas">Études de cas</a>
+          <a href="#offre">Mon offre</a>
           <a href="#a-propos">À propos</a>
           <a href="#methode">Méthode</a>
         </nav>
@@ -157,39 +158,42 @@
                     <ul class="case-list">
                       <li>
                         <strong
-                          >Consolidation et fiabilisation des données</strong
+                          >Rassemblement et fiabilisation des données</strong
                         >
-                        : assemblage de 4 sources annuelles disparates,
-                        correction des typages (locale de date, encodage),
-                        reconstruction d'une architecture de tarification par
-                        relation plutôt que par valeurs codées en dur — un choix
-                        de conception qui rend le modèle maintenable si les
-                        tarifs évoluent, sans jamais retoucher au calcul.
+                        : les 4 années d'historique, réparties dans des fichiers
+                        séparés et mal formatées, ont été regroupées et
+                        corrigées. Les tarifs ont été construits comme une
+                        grille modifiable d'une année sur l'autre, pour pouvoir
+                        les ajuster chaque année sans retoucher aux calculs.
                       </li>
                       <li>
-                        <strong>Modélisation en étoile</strong> : table de faits
-                        (appels) reliée aux dimensions Employés, Types d'appels,
-                        Tarifs et Calendrier, avec des mesures DAX dédiées
-                        (volume, taux de conformité SLA, revenu, durée et temps
-                        d'attente moyens).
+                        <strong>Une vue reliant tout ce qui compte</strong> :
+                        les appels ont été reliés aux employés, aux types
+                        d'appels, aux tarifs et au calendrier, avec des
+                        indicateurs calculés automatiquement (volume, respect
+                        des délais, revenu, durée et temps d'attente moyens).
                       </li>
                       <li>
                         <strong
-                          >Analyse causale, pas seulement descriptive</strong
+                          >Recherche de la vraie cause, pas d'un simple
+                          constat</strong
                         >
-                        : au-delà du simple constat d'une hausse de revenu de
-                        66% sur la période, identification de la vraie cause —
-                        une progression tarifaire annuelle différenciée par type
-                        d'appel (+25% Support technique, +12% Facturation, +10%
-                        Ventes) — plutôt qu'une fausse corrélation avec le
+                        : au-delà de la hausse de revenu de 66% sur la période,
+                        la cause identifiée est une hausse tarifaire
+                        différenciée par type d'appel (+25% Support technique,
+                        +12% Facturation, +10% Ventes), et non une hausse du
                         volume d'appels, resté quasi stable (-0,6%).
                       </li>
                       <li>
-                        <strong>Détection d'employés à risque</strong> :
-                        croisement volume d'appels traités et temps d'attente
-                        moyen pour isoler, par comparaison à la moyenne globale,
-                        les profils cumulant forte charge et délai élevé —
-                        signal direct pour une action managériale ciblée.
+                        <strong
+                          >Repérage des employés à surveiller en
+                          priorité</strong
+                        >
+                        : en croisant le volume d'appels traités et le temps
+                        d'attente moyen, les profils cumulant forte charge et
+                        délai élevé ont été isolés par rapport à la moyenne de
+                        l'équipe — un signal direct pour une action managériale
+                        ciblée.
                       </li>
                     </ul>
                   </dd>
@@ -226,6 +230,51 @@
                 causale, conception de KPI orientés décision. Rapport interactif
                 disponible sur demande.
               </p>
+
+              <details class="tech-detail">
+                <summary>Voir le détail technique</summary>
+                <div class="tech-detail-body">
+                  <p class="case-tag">Démarche — détail technique complet</p>
+                  <ul class="case-list">
+                    <li>
+                      <strong
+                        >Consolidation et fiabilisation des données</strong
+                      >
+                      : assemblage de 4 sources annuelles disparates, correction
+                      des typages (locale de date, encodage), reconstruction
+                      d'une architecture de tarification par relation plutôt que
+                      par valeurs codées en dur — un choix de conception qui
+                      rend le modèle maintenable si les tarifs évoluent, sans
+                      jamais retoucher au calcul.
+                    </li>
+                    <li>
+                      <strong>Modélisation en étoile</strong> : table de faits
+                      (appels) reliée aux dimensions Employés, Types d'appels,
+                      Tarifs et Calendrier, avec des mesures DAX dédiées
+                      (volume, taux de conformité SLA, revenu, durée et temps
+                      d'attente moyens).
+                    </li>
+                    <li>
+                      <strong
+                        >Analyse causale, pas seulement descriptive</strong
+                      >
+                      : au-delà du simple constat d'une hausse de revenu de 66%
+                      sur la période, identification de la vraie cause — une
+                      progression tarifaire annuelle différenciée par type
+                      d'appel (+25% Support technique, +12% Facturation, +10%
+                      Ventes) — plutôt qu'une fausse corrélation avec le volume
+                      d'appels, resté quasi stable (-0,6%).
+                    </li>
+                    <li>
+                      <strong>Détection d'employés à risque</strong> :
+                      croisement volume d'appels traités et temps d'attente
+                      moyen pour isoler, par comparaison à la moyenne globale,
+                      les profils cumulant forte charge et délai élevé — signal
+                      direct pour une action managériale ciblée.
+                    </li>
+                  </ul>
+                </div>
+              </details>
             </div>
           </div>
         </article>
@@ -286,37 +335,38 @@
                     <ul class="case-list">
                       <li>
                         <strong>Nettoyage et fiabilisation des données</strong>
-                        : correction des types (codes INSEE forcés en texte pour
-                        préserver les zéros initiaux), gestion du séparateur
-                        décimal anglo-saxon des données sources, traitement des
-                        doublons sur les codes communaux liés aux
-                        circonscriptions européennes.
+                        : les identifiants de communes, les formats de nombres
+                        et les doublons liés aux découpages électoraux ont été
+                        corrigés un par un pour que chaque commune soit comptée
+                        une seule fois et correctement identifiée.
                       </li>
                       <li>
-                        <strong>Modélisation en étoile</strong>, avec un
-                        contournement technique assumé : les doublons
-                        structurels sur la table géographique empêchant une
-                        relation directe propre, construction de tables agrégées
-                        dédiées (<code>SUMMARIZE</code>) pour chaque axe
-                        d'analyse — un choix de conception documenté plutôt
-                        qu'un raccourci.
+                        <strong
+                          >Une vue construite pour chaque angle
+                          d'analyse</strong
+                        >
+                        : les données géographiques comportaient des doublons
+                        qui empêchaient de tout relier simplement. Des tables de
+                        synthèse ont donc été construites spécifiquement pour
+                        chaque angle d'étude (région, genre, éloignement,
+                        entreprises) — un choix documenté plutôt qu'un
+                        raccourci.
                       </li>
                       <li>
                         <strong>6 pages de dashboard interactif</strong>,
-                        structurées en entonnoir analytique : vue nationale →
+                        structurées comme un entonnoir : vue nationale →
                         inégalités de genre → profil territorial (éloignement
                         géographique) → tissu entrepreneurial → synthèse
-                        communale, chaque page reliant explicitement le visuel
-                        choisi à la problématique posée.
+                        communale, chaque page répondant à une question précise.
                       </li>
                       <li>
-                        <strong>Choix de visualisation justifiés</strong> :
-                        scatter chart pour croiser deux variables continues
-                        (population vs salaire, éloignement vs salaire), bar
-                        chart trié pour les comparaisons régionales, heatmap
-                        pour la double dimension région × catégorie
-                        socio-professionnelle — plutôt qu'un choix de graphique
-                        par défaut.
+                        <strong>Un graphique adapté à chaque question</strong>
+                        : un graphique croisant deux indicateurs quand il
+                        fallait comparer deux variables (population et salaire,
+                        éloignement et salaire), un classement trié pour
+                        comparer les régions, une carte croisée pour comparer
+                        région et catégorie de poste — plutôt qu'un graphique
+                        choisi par défaut.
                       </li>
                     </ul>
                   </dd>
@@ -361,6 +411,47 @@
                 actualiser pour une lecture contemporaine.<br />Rapport
                 interactif disponible sur demande.
               </p>
+
+              <details class="tech-detail">
+                <summary>Voir le détail technique</summary>
+                <div class="tech-detail-body">
+                  <p class="case-tag">Démarche — détail technique complet</p>
+                  <ul class="case-list">
+                    <li>
+                      <strong>Nettoyage et fiabilisation des données</strong>
+                      : correction des types (codes INSEE forcés en texte pour
+                      préserver les zéros initiaux), gestion du séparateur
+                      décimal anglo-saxon des données sources, traitement des
+                      doublons sur les codes communaux liés aux circonscriptions
+                      européennes.
+                    </li>
+                    <li>
+                      <strong>Modélisation en étoile</strong>, avec un
+                      contournement technique assumé : les doublons structurels
+                      sur la table géographique empêchant une relation directe
+                      propre, construction de tables agrégées dédiées
+                      (<code>SUMMARIZE</code>) pour chaque axe d'analyse — un
+                      choix de conception documenté plutôt qu'un raccourci.
+                    </li>
+                    <li>
+                      <strong>6 pages de dashboard interactif</strong>,
+                      structurées en entonnoir analytique : vue nationale →
+                      inégalités de genre → profil territorial (éloignement
+                      géographique) → tissu entrepreneurial → synthèse
+                      communale, chaque page reliant explicitement le visuel
+                      choisi à la problématique posée.
+                    </li>
+                    <li>
+                      <strong>Choix de visualisation justifiés</strong> :
+                      scatter chart pour croiser deux variables continues
+                      (population vs salaire, éloignement vs salaire), bar chart
+                      trié pour les comparaisons régionales, heatmap pour la
+                      double dimension région × catégorie socio-professionnelle
+                      — plutôt qu'un choix de graphique par défaut.
+                    </li>
+                  </ul>
+                </div>
+              </details>
             </div>
           </div>
         </article>
@@ -423,46 +514,49 @@
                   <dd>
                     <ul class="case-list">
                       <li>
-                        <strong>Modélisation en étoile</strong> : une table de
-                        faits (ventes quotidiennes par magasin et famille)
-                        reliée à deux dimensions — magasins et calendrier, ce
-                        dernier enrichi avec le prix du pétrole et les jours
-                        fériés effectifs pour tester l'influence de facteurs
-                        externes sur la demande.
+                        <strong
+                          >Toutes les ventes reliées au bon contexte</strong
+                        >
+                        : les ventes quotidiennes de chaque magasin et famille
+                        de produits ont été reliées aux informations de
+                        calendrier, enrichies avec le prix du pétrole et les
+                        jours fériés réels, pour tester si des facteurs
+                        extérieurs influencent la demande.
                       </li>
                       <li>
-                        <strong>Mesures DAX progressives</strong>, construites
-                        par couches successives : moyenne mobile 7 jours pour
-                        lisser le bruit quotidien, tendance comparant les 7
-                        derniers jours aux 7 précédents
-                        (<code>DATESINPERIOD</code>), coefficient de variation
-                        (écart-type normalisé par la moyenne) pour détecter les
-                        familles à comportement erratique indépendamment de leur
-                        volume de vente.
+                        <strong>Des indicateurs construits par étapes</strong>
+                        : une moyenne sur 7 jours pour lisser les à-coups du
+                        quotidien, une comparaison automatique entre la semaine
+                        en cours et la précédente pour repérer une tendance, et
+                        un indicateur de régularité des ventes qui repère les
+                        familles de produits imprévisibles même quand leur
+                        volume semble faible.
                       </li>
                       <li>
-                        <strong>Détection de risque à seuil double</strong> :
-                        une mesure de statut croisant tendance haussière et
-                        forte variabilité, pour isoler les vraies alertes plutôt
-                        que de signaler toute famille en croissance simple et
-                        prévisible — 15 combinaisons magasin × famille
-                        identifiées sur 165 possibles.
+                        <strong>Détection de risque à double critère</strong> :
+                        un statut d'alerte a été créé en croisant tendance à la
+                        hausse et forte irrégularité, pour ne signaler que les
+                        vraies situations à risque plutôt que toute famille
+                        simplement en croissance — 15 combinaisons magasin ×
+                        famille identifiées sur 165 possibles.
                       </li>
                       <li>
-                        <strong>4 pages de dashboard</strong>, organisées en
-                        entonnoir décisionnel : vue d'ensemble avec prévision à
-                        30 jours → saisonnalité et facteurs externes →
+                        <strong>4 pages de dashboard</strong>, organisées comme
+                        un parcours de décision : vue d'ensemble avec prévision
+                        à 30 jours → saisonnalité et facteurs externes →
                         répartition magasin/famille et effet des promotions →
-                        page de recommandation croisant prévision filtrable,
-                        indicateurs de risque et table actionnable.
+                        page de recommandation avec la prévision, les
+                        indicateurs de risque et une liste d'actions concrètes.
                       </li>
                       <li>
-                        <strong>Prévision intégrée nativement</strong> via
-                        l'Analytics pane de Power BI, réutilisée sur plusieurs
-                        pages avec un comportement dynamique : la page 4
-                        reprojette la prévision à 30 jours selon la sélection
-                        magasin/famille de l'utilisateur, plutôt qu'une vue
-                        figée.
+                        <strong
+                          >Une prévision qui s'adapte à la sélection</strong
+                        >
+                        : l'outil de prévision intégré à Power BI a été
+                        réutilisé sur plusieurs pages, de façon à recalculer
+                        automatiquement la projection à 30 jours selon le
+                        magasin et la famille de produits sélectionnés, plutôt
+                        qu'une vue figée.
                       </li>
                     </ul>
                   </dd>
@@ -508,9 +602,117 @@
                   </dd>
                 </div>
               </dl>
+
+              <details class="tech-detail">
+                <summary>Voir le détail technique</summary>
+                <div class="tech-detail-body">
+                  <p class="case-tag">Démarche — détail technique complet</p>
+                  <ul class="case-list">
+                    <li>
+                      <strong>Modélisation en étoile</strong> : une table de
+                      faits (ventes quotidiennes par magasin et famille) reliée
+                      à deux dimensions — magasins et calendrier, ce dernier
+                      enrichi avec le prix du pétrole et les jours fériés
+                      effectifs pour tester l'influence de facteurs externes sur
+                      la demande.
+                    </li>
+                    <li>
+                      <strong>Mesures DAX progressives</strong>, construites par
+                      couches successives : moyenne mobile 7 jours pour lisser
+                      le bruit quotidien, tendance comparant les 7 derniers
+                      jours aux 7 précédents (<code>DATESINPERIOD</code>),
+                      coefficient de variation (écart-type normalisé par la
+                      moyenne) pour détecter les familles à comportement
+                      erratique indépendamment de leur volume de vente.
+                    </li>
+                    <li>
+                      <strong>Détection de risque à seuil double</strong> : une
+                      mesure de statut croisant tendance haussière et forte
+                      variabilité, pour isoler les vraies alertes plutôt que de
+                      signaler toute famille en croissance simple et prévisible
+                      — 15 combinaisons magasin × famille identifiées sur 165
+                      possibles.
+                    </li>
+                    <li>
+                      <strong>4 pages de dashboard</strong>, organisées en
+                      entonnoir décisionnel : vue d'ensemble avec prévision à 30
+                      jours → saisonnalité et facteurs externes → répartition
+                      magasin/famille et effet des promotions → page de
+                      recommandation croisant prévision filtrable, indicateurs
+                      de risque et table actionnable.
+                    </li>
+                    <li>
+                      <strong>Prévision intégrée nativement</strong> via
+                      l'Analytics pane de Power BI, réutilisée sur plusieurs
+                      pages avec un comportement dynamique : la page 4
+                      reprojette la prévision à 30 jours selon la sélection
+                      magasin/famille de l'utilisateur, plutôt qu'une vue figée.
+                    </li>
+                  </ul>
+                </div>
+              </details>
             </div>
           </div>
         </article>
+      </section>
+
+      <!-- MON OFFRE -->
+      <section class="section" id="offre">
+        <div class="wrap">
+          <p class="eyebrow">Mon offre</p>
+          <h2>Trois façons de travailler ensemble</h2>
+          <p class="section-intro">
+            Pensées pour des PME et franchises retail multi-sites : pas de gros
+            contrat, pas de jargon, un périmètre clair à chaque étape.
+          </p>
+
+          <div class="offer-grid">
+            <article class="offer-card">
+              <h3>Diagnostic</h3>
+              <p class="offer-price">450 à 600 €</p>
+              <p class="offer-desc">
+                Un audit de vos données actuelles (caisse, stock, RH) et un
+                rapport identifiant 2-3 leviers de pilotage prioritaires. Livré
+                sous 5 jours ouvrés.
+              </p>
+              <a
+                class="btn btn-ghost offer-cta"
+                href="mailto:contact@talha-data.fr?subject=Je%20souhaite%20en%20savoir%20plus%20sur%20le%20Diagnostic"
+                >En discuter par email</a
+              >
+            </article>
+
+            <article class="offer-card">
+              <h3>Dashboard sur mesure</h3>
+              <p class="offer-price">1800 à 3200 €</p>
+              <p class="offer-desc">
+                Un tableau de bord Power BI complet, conçu autour de votre
+                problématique réelle (réassort, staffing, rentabilité par point
+                de vente), avec formation à son utilisation.
+              </p>
+              <a
+                class="btn btn-ghost offer-cta"
+                href="mailto:contact@talha-data.fr?subject=Je%20souhaite%20en%20savoir%20plus%20sur%20le%20Dashboard%20sur%20mesure"
+                >En discuter par email</a
+              >
+            </article>
+
+            <article class="offer-card">
+              <h3>Pilotage mensuel</h3>
+              <p class="offer-price">700 à 1100 €/mois</p>
+              <p class="offer-desc">
+                Mise à jour et enrichissement continu de votre dashboard, point
+                mensuel sur les indicateurs clés, ajustements selon l'évolution
+                de votre activité.
+              </p>
+              <a
+                class="btn btn-ghost offer-cta"
+                href="mailto:contact@talha-data.fr?subject=Je%20souhaite%20en%20savoir%20plus%20sur%20le%20Pilotage%20mensuel"
+                >En discuter par email</a
+              >
+            </article>
+          </div>
+        </div>
       </section>
 
       <!-- A PROPOS -->
